@@ -21,6 +21,7 @@ public class StaticDropdown {
 		System.out.println(driver.findElements(By.cssSelector("input[type='checkbox']")).size());
 		driver.findElement(By.id("divpaxinfo")).click();
 		Thread.sleep(2000);
+	
 		
 //		int i=1;
 //		while(i<5){
