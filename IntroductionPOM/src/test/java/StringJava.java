@@ -1,3 +1,4 @@
+import io.opentelemetry.exporter.logging.SystemOutLogExporter;
 
 public class StringJava {
 
@@ -13,13 +14,15 @@ String s1="narmeen";
 
 String s2=new String("welcome");
 String s3=new String("welcome");
-//String[] splittedstring=s.split(" ");
+String[] splittedstring=s.split(" ");
+
+System.out.println(splittedstring);
 //14     15     -
-for(int i=s.length()-1;i>=1;i--) {
-	
-	System.out.println(s.charAt(i)+" "+i);
-}
-	
+//for(int i=s.length()-1;i>=1;i--) {
+//	
+//	System.out.println(s.charAt(i)+" "+i);
+//}
+//	
 	}
 
 }
