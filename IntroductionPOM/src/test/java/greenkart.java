@@ -24,85 +24,84 @@ public class greenkart {
 
 
 
-public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException {
 
-// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 
-//System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
 
-	System.setProperty("webdriver.chrome.driver",
-			"C:\\Users\\Narmeen\\Downloads\\chromedriver_win32\\chromedriver.exe");
-
-
-WebDriver driver=new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Narmeen\\Downloads\\chromedriver_win32\\chromedriver.exe");
 
 
+		WebDriver driver=new ChromeDriver();
 
-String[] itemsNeeded= {"Cucumber","Brocolli","Beetroot"};
 
+
+		String[] itemsNeeded= {"Cucumber","Brocolli","Beetroot"};
 
 
 
 
-driver.get("https://rahulshettyacademy.com/seleniumPractise/");
 
-Thread.sleep(3000);
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/");
 
-addItems(driver,itemsNeeded);
+		Thread.sleep(3000);
 
-}
+		addItems(driver,itemsNeeded);
 
-public static  void addItems(WebDriver driver,String[] itemsNeeded)
+	}
 
-{
+	public static  void addItems(WebDriver driver,String[] itemsNeeded)
 
-int j=0;
+	{
 
-List<WebElement> products=driver.findElements(By.cssSelector("h4.product-name"));
+		int j=0;
 
-for(int i=0;i<products.size();i++)
+		List<WebElement> products=driver.findElements(By.cssSelector("h4.product-name"));
 
-{
+		for(int i=0;i<products.size();i++)
 
-//Brocolli - 1 Kg
+		{
 
-//Brocolli,    1 kg
+			//Brocolli - 1 Kg
 
-String[] name=products.get(i).getText().split("-");
+			//Brocolli,    1 kg
 
-String formattedName=name[0].trim();
+			String[] name=products.get(i).getText().split("-");
 
-//format it to get actual vegetable name
+			String formattedName=name[0].trim();
 
-//convert array into array list for easy search
+			//format it to get actual vegetable name
 
-//  check whether name you extracted is present in arrayList or not-
+			//convert array into array list for easy search
 
-List itemsNeededList = Arrays.asList(itemsNeeded);
+			//  check whether name you extracted is present in arrayList or not-
 
-if(itemsNeededList.contains(formattedName))
+			List itemsNeededList = Arrays.asList(itemsNeeded);
 
-{
+			if(itemsNeededList.contains(formattedName))
 
-j++;
+			{
 
-//click on Add to cart
+				j++;
 
-driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
+				//click on Add to cart
 
-if(j==itemsNeeded.length)
+				driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
 
-{
+				if(j==itemsNeeded.length)
 
-break;
+				{
 
-}
+					break;
 
-}
+				}
 
-}
+			}
 
-}
+		}
+
+	}
 
 
 
